@@ -1,0 +1,69 @@
+<table class="row-border hover">
+      <h3 class="text-center">User Registration</h3>
+         <div class="col-xs-12">
+              <div class="form-group">
+              </div>
+          </div>        
+          <!-- <input #myuser type="text" class="form-control" >
+          <button (click)="onclick(myuser)" class="btn btn-danger mt-3">Create User</button> -->
+  <div class="col-md-12 bg-light text-right">
+      <button type="button" style="float: right;" class="btn btn-success "  [routerLink]="['/add-user']" >Add User</button>
+  </div>
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered" >
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Mobile No</th>
+              <th>DOB</th>
+              <th>Gender</th>
+              <th>Action</th>
+          </tr>            
+      </thead>
+      <tbody *ngIf="persons.length != 0">
+          <tr *ngFor="let person of persons">
+              <td>{{person.firstName}}</td>
+              <td>{{person.lastName}}</td>
+              <td>{{person.email}}</td>
+              <td>{{person.phoneNumber}}</td>
+              <td>{{person.dob}}</td>
+              <td>{{person.gender}}</td>             
+                <!-- <td>{{userno + 1}}</td>
+                <td>{{person}}</td> -->
+                <!-- <td>
+                    <button (click)="ondelete(userno)" class="btn btn-success">Remove User</button>
+                </td> -->
+              <td>
+                  <button type="button" class="btn btn-success btn-sm" (click)="editUser(person.email)">Edit</button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(person.email)">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+      <tbody *ngIf="persons.length == 0">
+        <tr>
+          <td colspan="7" class="no-data-available">No data!</td>
+        </tr>
+      </tbody>
+  </table>
+
+
+
+ <!-- <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.id }}</td>
+        <td>{{ person.firstName }}</td>
+        <td>{{ person.lastName }}</td>
+      </tr>
+      
+    </tbody>
+  </table> -->
+  </table>
